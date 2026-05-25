@@ -662,6 +662,14 @@
         {
           "type": "STRING",
           "value": "Text"
+        },
+        {
+          "type": "STRING",
+          "value": "Svg"
+        },
+        {
+          "type": "STRING",
+          "value": "Path"
         }
       ]
     },

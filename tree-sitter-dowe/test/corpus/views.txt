@@ -1,0 +1,83 @@
+==================
+Svg paths and children
+==================
+
+layout AuthLayout
+  Box
+    children
+
+page loginPage
+  Svg viewBox:"0 0 24 24" color:tertiary w:8 h:8
+    Path d:"M0 0h24v24H0z" fill:none
+    Path fill:currentColor d:"M22 12c0-5.523-4.477-10-10-10"
+
+---
+
+(source_file
+  (node_line
+    (line_name
+      (root_keyword))
+      (line_item
+        (value
+          (property_name))))
+  (node_line
+    (line_name
+      (component_name)))
+  (node_line
+    (line_name
+      (block_keyword)))
+  (node_line
+    (line_name
+      (root_keyword))
+      (line_item
+        (value
+          (property_name))))
+  (node_line
+    (line_name
+      (component_name))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+        (line_item
+          (prop
+            (property_name)
+            (value
+              (property_name))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (number))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (number)))))
+  (node_line
+    (line_name
+      (component_name))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+        (line_item
+          (prop
+            (property_name)
+            (value
+              (property_name)))))
+  (node_line
+    (line_name
+      (component_name))
+        (line_item
+          (prop
+            (property_name)
+            (value
+              (property_name))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))))

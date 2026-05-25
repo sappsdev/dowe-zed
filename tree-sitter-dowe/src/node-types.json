@@ -466,6 +466,14 @@
     "named": false
   },
   {
+    "type": "Path",
+    "named": false
+  },
+  {
+    "type": "Svg",
+    "named": false
+  },
+  {
     "type": "Text",
     "named": false
   },
