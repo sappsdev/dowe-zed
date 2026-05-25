@@ -102,10 +102,6 @@
           "named": true
         },
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "root_keyword",
           "named": true
         }
@@ -226,6 +222,10 @@
         {
           "type": "node_line",
           "named": true
+        },
+        {
+          "type": "text_line",
+          "named": true
         }
       ]
     }
@@ -240,6 +240,83 @@
       "types": [
         {
           "type": "reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "text_line",
+    "named": true,
+    "fields": {
+      "text": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "text_token",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "text_token",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "text_token",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "method_name",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "path_literal",
+          "named": true
+        },
+        {
+          "type": "punctuation",
+          "named": true
+        },
+        {
+          "type": "reference",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "text_fragment",
           "named": true
         }
       ]
@@ -342,10 +419,6 @@
   },
   {
     "type": "Alert",
-    "named": false
-  },
-  {
-    "type": "Body",
     "named": false
   },
   {
@@ -461,6 +534,10 @@
     "named": false
   },
   {
+    "type": "error",
+    "named": false
+  },
+  {
     "type": "false",
     "named": false
   },
@@ -491,6 +568,10 @@
   {
     "type": "import_path",
     "named": true
+  },
+  {
+    "type": "info",
+    "named": false
   },
   {
     "type": "init",
@@ -565,6 +646,10 @@
     "named": false
   },
   {
+    "type": "response",
+    "named": false
+  },
+  {
     "type": "return",
     "named": false
   },
@@ -602,6 +687,10 @@
   },
   {
     "type": "views",
+    "named": false
+  },
+  {
+    "type": "warn",
     "named": false
   },
   {

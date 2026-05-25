@@ -1,5 +1,5 @@
 (import_statement "import" @keyword "from" @keyword)
-(identifier) @variable
+(import_statement (identifier) @variable)
 (import_path) @string
 (root_keyword) @keyword
 (block_keyword) @keyword
@@ -8,7 +8,10 @@
 (component_name) @constructor
 (prop (property_name) @property)
 (object_entry (property_name) @property)
+(value (identifier) @variable)
 (value (property_name) @variable)
+(text_line) @string
+(text_line (text_token (reference) @variable))
 (text_fragment) @string
 (string) @string
 (number) @number

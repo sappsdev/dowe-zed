@@ -2,7 +2,7 @@ module.exports = grammar({
   name: "dowe",
   extras: $ => [/[ \r]/],
   rules: {
-    source_file: $ => repeat(choice(seq(choice($.import_statement, $.node_line), "\n"), "\n")),
+    source_file: $ => repeat(choice(seq(choice($.import_statement, $.node_line, $.text_line), "\n"), "\n")),
     import_statement: $ => seq("import", $.identifier, "from", $.import_path),
     node_line: $ => seq(field("name", $.line_name), repeat($.line_item)),
     line_name: $ => choice(
@@ -10,9 +10,9 @@ module.exports = grammar({
       $.block_keyword,
       $.control_keyword,
       $.action_keyword,
-      $.component_name,
-      $.identifier
+      $.component_name
     ),
+    text_line: $ => seq(field("text", $.text_token), repeat($.text_token)),
     line_item: $ => choice($.prop, $.value),
     prop: $ => prec(1, seq($.property_name, ":", $.value)),
     value: $ => choice(
@@ -27,6 +27,18 @@ module.exports = grammar({
       $.reference,
       $.identifier,
       $.property_name,
+      $.text_fragment,
+      $.punctuation
+    ),
+    text_token: $ => choice(
+      $.string,
+      $.reference,
+      $.path_literal,
+      $.method_name,
+      $.number,
+      $.boolean,
+      $.null,
+      $.identifier,
       $.text_fragment,
       $.punctuation
     ),
@@ -61,8 +73,8 @@ module.exports = grammar({
       "children"
     ),
     control_keyword: $ => choice("if", "else", "each"),
-    action_keyword: $ => choice("signal", "action", "request", "assign", "reset", "return", "let", "log", "open", "message", "close", "drain", "onSuccess", "onError"),
-    component_name: $ => choice("Box", "Flex", "Grid", "Card", "Input", "Button", "Alert", "Body", "Title", "Text"),
+    action_keyword: $ => choice("signal", "action", "request", "assign", "reset", "return", "response", "let", "log", "info", "warn", "error", "open", "message", "close", "drain", "onSuccess", "onError"),
+    component_name: $ => choice("Box", "Flex", "Grid", "Card", "Input", "Button", "Alert", "Title", "Text"),
     property_name: $ => token(prec(1, /[A-Za-z_][A-Za-z0-9_]*/)),
     identifier: $ => token(prec(-1, /[A-Za-z_][A-Za-z0-9_]*/)),
     punctuation: $ => choice(":", ",", ".", "!", "?", ";")

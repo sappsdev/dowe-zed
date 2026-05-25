@@ -20,6 +20,10 @@
                   {
                     "type": "SYMBOL",
                     "name": "node_line"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "text_line"
                   }
                 ]
               },
@@ -99,10 +103,26 @@
         {
           "type": "SYMBOL",
           "name": "component_name"
+        }
+      ]
+    },
+    "text_line": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "text",
+          "content": {
+            "type": "SYMBOL",
+            "name": "text_token"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "text_token"
+          }
         }
       ]
     },
@@ -186,6 +206,51 @@
         {
           "type": "SYMBOL",
           "name": "property_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text_fragment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "punctuation"
+        }
+      ]
+    },
+    "text_token": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "reference"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "path_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "method_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "boolean"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "null"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
         },
         {
           "type": "SYMBOL",
@@ -511,11 +576,27 @@
         },
         {
           "type": "STRING",
+          "value": "response"
+        },
+        {
+          "type": "STRING",
           "value": "let"
         },
         {
           "type": "STRING",
           "value": "log"
+        },
+        {
+          "type": "STRING",
+          "value": "info"
+        },
+        {
+          "type": "STRING",
+          "value": "warn"
+        },
+        {
+          "type": "STRING",
+          "value": "error"
         },
         {
           "type": "STRING",
@@ -573,10 +654,6 @@
         {
           "type": "STRING",
           "value": "Alert"
-        },
-        {
-          "type": "STRING",
-          "value": "Body"
         },
         {
           "type": "STRING",
