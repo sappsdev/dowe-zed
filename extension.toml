@@ -6,16 +6,17 @@ schema_version = 1
 authors = ["Dowe Contributors"]
 repository = "https://github.com/dowe-lang/dowe-zed"
 languages = ["languages/dowe"]
+icon_themes = ["icon_themes/dowe-icons.json"]
 capabilities = []
 
 [lib]
 
 [language_servers.dowe-language-server]
 name = "Dowe Language Server"
-languages = ["Dowe Source Format"]
+languages = ["Dowe"]
 
 [language_servers.dowe-language-server.language_ids]
-"Dowe Source Format" = "dowe"
+"Dowe" = "dowe"
 
 [grammars.dowe]
 repository = "file:///Users/varb/Work/dowe-zed/.zed-dev/tree-sitter-dowe.git"

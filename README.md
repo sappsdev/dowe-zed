@@ -2,7 +2,7 @@
 
 Dowe Zed is the dedicated Zed extension repository for Dowe Source Format files.
 
-This repository contains the Zed extension adapter, language metadata, Tree-sitter queries, and the Dowe Tree-sitter grammar used by Zed. It recognizes `.dowe` files as `Dowe Source Format` and starts `dowe-language-server` over stdio.
+This repository contains the Zed extension adapter, language metadata, Tree-sitter queries, icon metadata, and the Dowe Tree-sitter grammar used by Zed. It recognizes `.dowe` files as `Dowe` and starts `dowe-language-server` over stdio.
 
 The extension is maintained here directly. It is not generated from, embedded in, or installed through another Dowe repository.
 
@@ -37,6 +37,8 @@ cargo check --target wasm32-wasip2
 ```
 
 Install the extension in Zed with `zed: install dev extension` and select this repository directory.
+
+The extension also provides the `Dowe Icons Dark` and `Dowe Icons Light` icon themes. Select one from Zed's icon theme selector to use the Dowe logo for `.dowe` files in the project panel.
 
 Run local validation:
 
@@ -89,6 +91,8 @@ Then open a PR to `zed-industries/extensions` that adds this repository as a sub
 | `src/lib.rs` | Starts `dowe-language-server` for Zed |
 | `languages/dowe/config.toml` | Registers `.dowe`, tab size, and grammar metadata |
 | `languages/dowe/*.scm` | Tree-sitter queries for highlighting, indentation, outline, text objects, and brackets |
+| `icon_themes/dowe-icons.json` | Registers the Dowe file icon theme |
+| `assets/logo.svg` | Provides the Dowe icon asset |
 | `tree-sitter-dowe/grammar.js` | Tree-sitter grammar source |
 | `tree-sitter-dowe/src/parser.c` | Generated Tree-sitter parser consumed by Zed |
 | `scripts/bootstrap-grammar-repo.sh` | Builds the local git mirror used by Zed dev extension installs |
