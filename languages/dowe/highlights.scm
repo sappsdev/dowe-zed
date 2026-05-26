@@ -5,6 +5,7 @@
 (block_keyword) @keyword
 (control_keyword) @keyword
 (action_keyword) @function
+(host_function) @function
 (component_name) @constructor
 (prop (property_name) @property)
 (object_entry (property_name) @property)

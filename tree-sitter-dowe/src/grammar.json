@@ -189,6 +189,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "host_function"
+        },
+        {
+          "type": "SYMBOL",
           "name": "method_name"
         },
         {
@@ -231,6 +235,10 @@
         {
           "type": "SYMBOL",
           "name": "path_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "host_function"
         },
         {
           "type": "SYMBOL",
@@ -404,12 +412,51 @@
       "value": "\\d+(\\.\\d+)?"
     },
     "reference": {
-      "type": "PATTERN",
-      "value": "[A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z_][A-Za-z0-9_]*)+"
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 2,
+        "content": {
+          "type": "PATTERN",
+          "value": "[A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z_][A-Za-z0-9_]*)+"
+        }
+      }
     },
     "path_literal": {
       "type": "PATTERN",
       "value": "\\/[A-Za-z0-9_./:-]*"
+    },
+    "host_function": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 3,
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "bearer"
+            },
+            {
+              "type": "STRING",
+              "value": "jwt.verify"
+            },
+            {
+              "type": "STRING",
+              "value": "jwt.decrypt"
+            },
+            {
+              "type": "STRING",
+              "value": "jwt.sign"
+            },
+            {
+              "type": "STRING",
+              "value": "jwt.encrypt"
+            }
+          ]
+        }
+      }
     },
     "method_name": {
       "type": "CHOICE",
@@ -501,6 +548,10 @@
         },
         {
           "type": "STRING",
+          "value": "middleware"
+        },
+        {
+          "type": "STRING",
           "value": "websocket"
         },
         {
@@ -580,6 +631,10 @@
         {
           "type": "STRING",
           "value": "return"
+        },
+        {
+          "type": "STRING",
+          "value": "continue"
         },
         {
           "type": "STRING",
