@@ -25,11 +25,6 @@
     "fields": {}
   },
   {
-    "type": "boolean",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "component_name",
     "named": true,
     "fields": {}
@@ -454,6 +449,10 @@
     "named": false
   },
   {
+    "type": "Option",
+    "named": false
+  },
+  {
     "type": "PATCH",
     "named": false
   },
@@ -467,6 +466,10 @@
   },
   {
     "type": "Path",
+    "named": false
+  },
+  {
+    "type": "Select",
     "named": false
   },
   {
@@ -496,6 +499,10 @@
   {
     "type": "assign",
     "named": false
+  },
+  {
+    "type": "boolean",
+    "named": true
   },
   {
     "type": "children",
@@ -543,10 +550,6 @@
   },
   {
     "type": "error",
-    "named": false
-  },
-  {
-    "type": "false",
     "named": false
   },
   {
@@ -683,10 +686,6 @@
   },
   {
     "type": "theme",
-    "named": false
-  },
-  {
-    "type": "true",
     "named": false
   },
   {

@@ -46,6 +46,19 @@ Run local validation:
 ./scripts/check.sh
 ```
 
+## View Syntax
+
+The grammar recognizes the built-in `Input`, `Select`, and `Option` form controls. Completion and diagnostic support for their props is provided by `dowe-language-server`.
+
+```text
+Input label:"Email" placeholder:"name@example.com" labelFloating:true variant:"outlined" scheme:"primary"
+Select label:"Role" placeholder:"Choose a role" labelFloating:true variant:"soft" scheme:"secondary"
+  Option value:"admin" label:"Administrator" description:"Manage users"
+  Option value:"viewer" label:"Viewer"
+```
+
+`Input` recognizes `label`, `placeholder`, and `labelFloating` through language-server support. `Select` recognizes the same visual props plus `bind`, `variant`, and `scheme`; direct `Option` children use `value`, `label`, and optional `description`. Every static string prop uses double quotes, including design tokens and enum values, so the language server flags `Option value:admin`, `Path fill:none`, `variant:outlined`, and `scheme:primary`. Resolved references such as `bind:profile.role` and `onClick:save` remain bare.
+
 ## Language Server
 
 The published extension must not depend on a private Dowe checkout. By default, the adapter asks Zed to download `dowe-language-server` from public release assets on `dowe-lang/dowe-zed`.

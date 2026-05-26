@@ -376,17 +376,24 @@
       "value": "\"([^\"\\\\]|\\\\.)*\""
     },
     "boolean": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "true"
-        },
-        {
-          "type": "STRING",
-          "value": "false"
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 2,
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "true"
+            },
+            {
+              "type": "STRING",
+              "value": "false"
+            }
+          ]
         }
-      ]
+      }
     },
     "null": {
       "type": "STRING",
@@ -646,6 +653,14 @@
         {
           "type": "STRING",
           "value": "Input"
+        },
+        {
+          "type": "STRING",
+          "value": "Select"
+        },
+        {
+          "type": "STRING",
+          "value": "Option"
         },
         {
           "type": "STRING",

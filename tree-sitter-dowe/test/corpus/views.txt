@@ -7,9 +7,9 @@ layout AuthLayout
     children
 
 page loginPage
-  Svg viewBox:"0 0 24 24" color:tertiary w:8 h:8
-    Path d:"M0 0h24v24H0z" fill:none
-    Path fill:currentColor d:"M22 12c0-5.523-4.477-10-10-10"
+  Svg viewBox:"0 0 24 24" color:"tertiary" w:8 h:8
+    Path d:"M0 0h24v24H0z" fill:"none"
+    Path fill:"currentColor" d:"M22 12c0-5.523-4.477-10-10-10"
 
 ---
 
@@ -42,9 +42,9 @@ page loginPage
           (string))))
         (line_item
           (prop
-            (property_name)
-            (value
-              (property_name))))
+        (property_name)
+        (value
+              (string))))
     (line_item
       (prop
         (property_name)
@@ -65,9 +65,9 @@ page loginPage
           (string))))
         (line_item
           (prop
-            (property_name)
-            (value
-              (property_name)))))
+        (property_name)
+        (value
+              (string)))))
   (node_line
     (line_name
       (component_name))
@@ -75,7 +75,114 @@ page loginPage
           (prop
             (property_name)
             (value
-              (property_name))))
+              (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))))
+
+==================
+Input and Select form controls
+==================
+
+page formPage
+  Input label:"Email" placeholder:"name@example.com" labelFloating:true variant:"outlined" scheme:"primary"
+  Select label:"Role" placeholder:"Choose a role" labelFloating:true variant:"soft" scheme:"secondary"
+    Option value:"admin" label:"Administrator" description:"Manage users"
+    Option value:"viewer" label:"Viewer"
+
+---
+
+(source_file
+  (node_line
+    (line_name
+      (root_keyword))
+    (line_item
+      (value
+        (property_name))))
+  (node_line
+    (line_name
+      (component_name))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (boolean))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string)))))
+  (node_line
+    (line_name
+      (component_name))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (boolean))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string)))))
+  (node_line
+    (line_name
+      (component_name))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string)))))
+  (node_line
+    (line_name
+      (component_name))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
     (line_item
       (prop
         (property_name)

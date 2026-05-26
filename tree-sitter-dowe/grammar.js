@@ -48,7 +48,7 @@ module.exports = grammar({
     spread: $ => seq("...", $.reference),
     import_path: $ => /"[^"\n]*"/,
     string: $ => /"([^"\\]|\\.)*"/,
-    boolean: $ => choice("true", "false"),
+    boolean: $ => token(prec(2, choice("true", "false"))),
     null: $ => "null",
     number: $ => /\d+(\.\d+)?/,
     reference: $ => /[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)+/,
@@ -74,7 +74,7 @@ module.exports = grammar({
     ),
     control_keyword: $ => choice("if", "else", "each"),
     action_keyword: $ => choice("signal", "action", "request", "assign", "reset", "return", "response", "let", "log", "info", "warn", "error", "open", "message", "close", "drain", "onSuccess", "onError"),
-    component_name: $ => choice("Box", "Flex", "Grid", "Card", "Input", "Button", "Alert", "Title", "Text", "Svg", "Path"),
+    component_name: $ => choice("Box", "Flex", "Grid", "Card", "Input", "Select", "Option", "Button", "Alert", "Title", "Text", "Svg", "Path"),
     property_name: $ => token(prec(1, /[A-Za-z_][A-Za-z0-9_]*/)),
     identifier: $ => token(prec(-1, /[A-Za-z_][A-Za-z0-9_]*/)),
     punctuation: $ => choice(":", ",", ".", "!", "?", ";")
