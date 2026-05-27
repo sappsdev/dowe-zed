@@ -6,6 +6,17 @@ This repository contains the Zed extension adapter, language metadata, Tree-sitt
 
 The extension is maintained here directly. It is not generated from, embedded in, or installed through another Dowe repository.
 
+## Repository Split
+
+Dowe editor support is intentionally split across sibling repositories:
+
+| Repository | Responsibility |
+| --- | --- |
+| `../dowe-lsp` | Rust `dowe-language-server`, diagnostics, completions, formatting, hover, symbols, navigation, and semantic editor behavior |
+| `../dowe-zed` | Zed extension adapter, Tree-sitter grammar, Zed queries, icon themes, `extension.toml`, and dev-extension install surface |
+
+Keep semantic language behavior in `dowe-language-server`. This repository should only own Zed integration, grammar, highlighting, structure, packaging, and local extension installation.
+
 ## Requirements
 
 - Zed with Rust extension development support.
@@ -22,9 +33,22 @@ Install the Rust target used by Zed extensions if it is not already present:
 rustup target add wasm32-wasip2
 ```
 
-Prepare the local grammar mirror used by Zed dev extension installs:
+Install the local language server after changing Dowe compiler or language APIs:
 
 ```sh
+cd ../dowe-lsp
+cargo check -p dowe_language_server
+cargo install --path crates/language_server --force
+cd ../dowe-zed
+```
+
+Regenerate and validate the grammar after changing `tree-sitter-dowe/grammar.js`:
+
+```sh
+cd tree-sitter-dowe
+tree-sitter generate
+tree-sitter test
+cd ..
 ./scripts/bootstrap-grammar-repo.sh
 ```
 
@@ -38,6 +62,8 @@ cargo check --target wasm32-wasip2
 
 Install the extension in Zed with `zed: install dev extension` and select this repository directory.
 
+After replacing the local language-server binary or changing the grammar rev, restart the Dowe language server or reload the Zed window. If Zed still uses stale grammar state, reinstall the dev extension from this repository.
+
 The extension also provides the `Dowe Icons Dark` and `Dowe Icons Light` icon themes. Select one from Zed's icon theme selector to use the Dowe logo for `.dowe` files in the project panel.
 
 Run local validation:
@@ -48,20 +74,30 @@ Run local validation:
 
 ## View Syntax
 
-The grammar recognizes the built-in `Input`, `Select`, and `Option` form controls. Completion and diagnostic support for their props is provided by `dowe-language-server`.
+The grammar recognizes the built-in view components, including `AppBar`, `Footer`, `BottomBar`, `Input`, `Select`, and `Option`. Completion and diagnostic support for their props is provided by `dowe-language-server`.
 
 ```text
+AppBar variant:"soft" scheme:"surface" bordered:true boxed:true
+  start
+    Text
+      Dowe
+  center
+    Text
+      Layout
+  end
+    Button href:"/blogs" variant:"soft" scheme:"tertiary"
+      Blogs
 Input label:"Email" placeholder:"name@example.com" labelFloating:true variant:"outlined" scheme:"primary"
 Select label:"Role" placeholder:"Choose a role" labelFloating:true variant:"soft" scheme:"secondary"
   Option value:"admin" label:"Administrator" description:"Manage users"
   Option value:"viewer" label:"Viewer"
 ```
 
-`Input` recognizes `label`, `placeholder`, and `labelFloating` through language-server support. `Select` recognizes the same visual props plus `bind`, `variant`, and `scheme`; direct `Option` children use `value`, `label`, and optional `description`. Every static string prop uses double quotes, including design tokens and enum values, so the language server flags `Option value:admin`, `Path fill:none`, `variant:outlined`, and `scheme:primary`. Resolved references such as `bind:profile.role` and `onClick:save` remain bare.
+`AppBar`, `Footer`, and `BottomBar` use direct `start`, `center`, and `end` region blocks. `Input` recognizes `label`, `placeholder`, and `labelFloating` through language-server support. `Select` recognizes the same visual props plus `bind`, `variant`, and `scheme`; direct `Option` children use `value`, `label`, and optional `description`. Every static string prop uses double quotes, including design tokens and enum values, so the language server flags `Option value:admin`, `Path fill:none`, `variant:outlined`, and `scheme:primary`. Resolved references such as `bind:profile.role` and `onClick:save` remain bare.
 
 ## Language Server
 
-The published extension must not depend on a private Dowe checkout. The adapter uses an explicit Zed LSP binary setting when present, then a `dowe-language-server` binary on `PATH`, and otherwise asks Zed to download `dowe-language-server` from public release assets on `dowe-lang/dowe-zed`.
+The published extension must not depend on a private Dowe checkout. The adapter uses an explicit Zed LSP binary setting when present, then a `dowe-language-server` binary on `PATH`, and otherwise asks Zed to download `dowe-language-server` from public release assets on `dowe-lang/dowe-zed`. The language-server source remains in `../dowe-lsp`; release assets attached to the extension are built from that repository.
 
 Each release that should provide language-server features needs these assets:
 
