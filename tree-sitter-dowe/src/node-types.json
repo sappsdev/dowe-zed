@@ -668,6 +668,10 @@
     "named": false
   },
   {
+    "type": "Video",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },

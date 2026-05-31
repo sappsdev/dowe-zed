@@ -998,6 +998,10 @@
         },
         {
           "type": "STRING",
+          "value": "Video"
+        },
+        {
+          "type": "STRING",
           "value": "Button"
         },
         {

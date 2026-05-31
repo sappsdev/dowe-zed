@@ -74,7 +74,7 @@ Run local validation:
 
 ## View Syntax
 
-The grammar recognizes the built-in view components, including `AppBar`, `Footer`, `BottomBar`, `Input`, `Select`, and `Option`. Completion and diagnostic support for their props is provided by `dowe-language-server`.
+The grammar recognizes the built-in view components, including `AppBar`, `Footer`, `BottomBar`, `Input`, `Select`, `Option`, and `Video`. Completion and diagnostic support for their props is provided by `dowe-language-server`.
 
 ```text
 AppBar variant:"soft" scheme:"surface" bordered:true boxed:true
@@ -91,9 +91,10 @@ Input label:"Email" placeholder:"name@example.com" labelFloating:true variant:"o
 Select label:"Role" placeholder:"Choose a role" labelFloating:true variant:"soft" scheme:"secondary"
   Option value:"admin" label:"Administrator" description:"Manage users"
   Option value:"viewer" label:"Viewer"
+Video src:"https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" aspect:"horizontal" scheme:"surface"
 ```
 
-`AppBar`, `Footer`, and `BottomBar` use direct `start`, `center`, and `end` region blocks. `Input` recognizes `label`, `placeholder`, and `labelFloating` through language-server support. `Select` recognizes the same visual props plus `bind`, `variant`, and `scheme`; direct `Option` children use `value`, `label`, and optional `description`. Every static string prop uses double quotes, including design tokens and enum values, so the language server flags `Option value:admin`, `Path fill:none`, `variant:outlined`, and `scheme:primary`. Resolved references such as `bind:profile.role` and `onClick:save` remain bare.
+`AppBar`, `Footer`, and `BottomBar` use direct `start`, `center`, and `end` region blocks. `Input` recognizes `label`, `placeholder`, and `labelFloating` through language-server support. `Select` recognizes the same visual props plus `bind`, `variant`, and `scheme`; direct `Option` children use `value`, `label`, and optional `description`. `Video` recognizes `src`, `poster`, `autoplay`, `aspect`, `variant`, and `scheme`. Every static string prop uses double quotes, including design tokens and enum values, so the language server flags `Option value:admin`, `Path fill:none`, `variant:outlined`, and `scheme:primary`. Resolved references such as `bind:profile.role` and `onClick:save` remain bare.
 
 ## Language Server
 
