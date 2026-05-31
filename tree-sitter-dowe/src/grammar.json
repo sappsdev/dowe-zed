@@ -803,6 +803,14 @@
         },
         {
           "type": "STRING",
+          "value": "colors"
+        },
+        {
+          "type": "STRING",
+          "value": "radii"
+        },
+        {
+          "type": "STRING",
           "value": "children"
         },
         {
@@ -816,6 +824,26 @@
         {
           "type": "STRING",
           "value": "end"
+        },
+        {
+          "type": "STRING",
+          "value": "header"
+        },
+        {
+          "type": "STRING",
+          "value": "item"
+        },
+        {
+          "type": "STRING",
+          "value": "divider"
+        },
+        {
+          "type": "STRING",
+          "value": "submenu"
+        },
+        {
+          "type": "STRING",
+          "value": "icon"
         }
       ]
     },
@@ -947,6 +975,10 @@
         {
           "type": "STRING",
           "value": "BottomBar"
+        },
+        {
+          "type": "STRING",
+          "value": "SideNav"
         },
         {
           "type": "STRING",

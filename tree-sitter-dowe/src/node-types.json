@@ -648,6 +648,10 @@
     "named": false
   },
   {
+    "type": "SideNav",
+    "named": false
+  },
+  {
     "type": "Svg",
     "named": false
   },
@@ -700,6 +704,10 @@
     "named": false
   },
   {
+    "type": "colors",
+    "named": false
+  },
+  {
     "type": "component",
     "named": false
   },
@@ -721,6 +729,10 @@
   },
   {
     "type": "desktop",
+    "named": false
+  },
+  {
+    "type": "divider",
     "named": false
   },
   {
@@ -760,8 +772,16 @@
     "named": false
   },
   {
+    "type": "header",
+    "named": false
+  },
+  {
     "type": "host_function",
     "named": true
+  },
+  {
+    "type": "icon",
+    "named": false
   },
   {
     "type": "if",
@@ -781,6 +801,10 @@
   },
   {
     "type": "init",
+    "named": false
+  },
+  {
+    "type": "item",
     "named": false
   },
   {
@@ -844,6 +868,10 @@
     "named": true
   },
   {
+    "type": "radii",
+    "named": false
+  },
+  {
     "type": "reference",
     "named": true
   },
@@ -882,6 +910,10 @@
   {
     "type": "string",
     "named": true
+  },
+  {
+    "type": "submenu",
+    "named": false
   },
   {
     "type": "text_fragment",

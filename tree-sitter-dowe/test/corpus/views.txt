@@ -1,4 +1,84 @@
 ==================
+Config design theme
+==================
+
+config
+  fonts default:"inter" install:["inter"]
+  design defaultTheme:"light"
+    theme name:"light"
+      colors primary:"#6bc670" onPrimary:"#26201f"
+      radii radius:12 radiusBox:12 radiusUi:12
+
+---
+
+(source_file
+  (node_line
+    (line_name
+      (root_keyword)))
+  (node_line
+    (line_name
+      (block_keyword))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (array
+            (value
+              (string)))))))
+  (node_line
+    (line_name
+      (block_keyword))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string)))))
+  (node_line
+    (line_name
+      (block_keyword))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string)))))
+  (node_line
+    (line_name
+      (block_keyword))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string)))))
+  (node_line
+    (line_name
+      (block_keyword))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (number))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (number))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (number))))))
+
+==================
 Layout bars
 ==================
 
@@ -355,3 +435,95 @@ page blogPage
         (property_name)
         (value
           (array))))))
+
+==================
+SideNav entries
+==================
+
+layout AuthLayout
+  SideNav
+    header label:"Workspace"
+    item label:"Home"
+      icon
+        Svg viewBox:"0 0 24 24"
+          Path d:"M3 11l9-8 9 8v10H3z" fill:"currentColor"
+    divider
+    submenu label:"Content" open:true
+      item label:"Blogs"
+
+---
+
+(source_file
+  (node_line
+    (line_name
+      (root_keyword))
+    (line_item
+      (value
+        (property_name))))
+  (node_line
+    (line_name
+      (component_name)))
+  (node_line
+    (line_name
+      (block_keyword))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string)))))
+  (node_line
+    (line_name
+      (block_keyword))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string)))))
+  (node_line
+    (line_name
+      (block_keyword)))
+  (node_line
+    (line_name
+      (component_name))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string)))))
+  (node_line
+    (line_name
+      (component_name))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string)))))
+  (node_line
+    (line_name
+      (block_keyword)))
+  (node_line
+    (line_name
+      (block_keyword))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (boolean)))))
+  (node_line
+    (line_name
+      (block_keyword))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))))
