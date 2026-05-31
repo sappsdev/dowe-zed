@@ -286,6 +286,47 @@ page loginPage
           (string))))))
 
 ==================
+Code blocks
+==================
+
+page docsPage
+  Code language:"dowe" scheme:"surface" lines:["page docsPage","  Text","    Documentation"]
+
+---
+
+(source_file
+  (node_line
+    (line_name
+      (root_keyword))
+    (line_item
+      (value
+        (property_name))))
+  (node_line
+    (line_name
+      (component_name))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (string))))
+    (line_item
+      (prop
+        (property_name)
+        (value
+          (array
+            (value
+              (string))
+            (value
+              (string))
+            (value
+              (string))))))))
+
+==================
 Input and Select form controls
 ==================
 
